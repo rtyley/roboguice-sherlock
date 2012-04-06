@@ -7,7 +7,7 @@
     </parent>
     <groupId>com.github.rtyley</groupId>
     <artifactId>roboguice-sherlock</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2</version>
     <packaging>jar</packaging>
     <name>RoboGuice-Sherlock</name>
     <description>
