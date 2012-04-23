@@ -5,19 +5,24 @@ import android.os.Bundle;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 
 import roboguice.RoboGuice;
-
 import roboguice.activity.event.*;
 import roboguice.event.EventManager;
 import roboguice.inject.ContentViewListener;
 import roboguice.inject.RoboInjector;
+import roboguice.util.RoboContext;
 
 import android.content.Intent;
 import android.content.res.Configuration;
 
 import com.google.inject.Inject;
+import com.google.inject.Key;
 
-public class RoboSherlockFragmentActivity extends SherlockFragmentActivity {
+import java.util.HashMap;
+import java.util.Map;
+
+public class RoboSherlockFragmentActivity extends SherlockFragmentActivity implements RoboContext {
     protected EventManager eventManager;
+    protected HashMap<Key<?>, Object> scopedObjects = new HashMap<Key<?>, Object>();
 
     @Inject ContentViewListener ignored; // BUG find a better place to put this
 
@@ -100,5 +105,10 @@ public class RoboSherlockFragmentActivity extends SherlockFragmentActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         eventManager.fire(new OnActivityResultEvent(requestCode, resultCode, data));
+    }
+
+    @Override
+    public Map<Key<?>, Object> getScopedObjectMap() {
+        return scopedObjects;
     }
 }
