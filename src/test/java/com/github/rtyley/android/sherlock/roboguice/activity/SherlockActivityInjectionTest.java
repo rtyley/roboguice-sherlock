@@ -290,10 +290,6 @@ public class SherlockActivityInjectionTest {
         }
     }
 
-    public static class PojoA {
-        @InjectView(100) View v;
-    }
-
     public static class G extends RoboSherlockActivity {
         @Inject Application application;
 
