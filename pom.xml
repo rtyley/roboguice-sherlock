@@ -55,7 +55,7 @@
         </dependency>
         <dependency>
             <groupId>com.actionbarsherlock</groupId>
-            <artifactId>library</artifactId>
+            <artifactId>actionbarsherlock</artifactId>
             <version>4.2.0</version>
             <type>jar</type>
             <scope>provided</scope>
