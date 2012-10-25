@@ -29,6 +29,7 @@ import roboguice.activity.event.OnStartEvent;
 import roboguice.activity.event.OnStopEvent;
 import roboguice.event.EventManager;
 import roboguice.inject.ContentViewListener;
+import roboguice.inject.ContextScope;
 import roboguice.inject.PreferenceListener;
 import roboguice.inject.RoboInjector;
 import roboguice.util.RoboContext;
@@ -69,7 +70,16 @@ public class RoboSherlockPreferenceActivity extends SherlockPreferenceActivity i
     @Override
     public void setPreferenceScreen(PreferenceScreen preferenceScreen) {
         super.setPreferenceScreen(preferenceScreen);
-        preferenceListener.injectPreferenceViews();
+
+        final ContextScope scope = RoboGuice.getInjector(this).getInstance(ContextScope.class);
+        synchronized (ContextScope.class) {
+            scope.enter(this);
+            try {
+                preferenceListener.injectPreferenceViews();
+            } finally {
+                scope.exit(this);
+            }
+        }
     }
 
     @Override
