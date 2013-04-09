@@ -18,6 +18,10 @@ All classes in this project have the same name as the RoboGuice ones, with 'Sher
 inserted after the 'Robo', ie `Robo**Sherlock**ListFragment`. The package is also changed
 to `com.github.rtyley.android.sherlock.roboguice.**`.
 
+Download releases from Maven:
+
+http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.github.rtyley%22%20AND%20a%3A%22roboguice-sherlock%22
+
 ## Used in...
 
 The open-source [Gaug.es](https://play.google.com/store/apps/details?id=com.github.mobile.gauges)
