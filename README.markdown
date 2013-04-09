@@ -1,4 +1,4 @@
-# roboguice-sherlock
+# roboguice-sherlock [![Build Status](https://travis-ci.org/rtyley/roboguice-sherlock.png)](https://travis-ci.org/rtyley/roboguice-sherlock)
 
 **RoboGuice classes for use with ActionBarSherlock**
 
